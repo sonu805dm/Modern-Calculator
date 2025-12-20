@@ -5,6 +5,8 @@
  *  therefore this separate class is made.
  */
 
+import java.util.StringTokenizer;
+
 public class Helper {
     public Helper() {
 
@@ -27,5 +29,22 @@ public class Helper {
         } else {
             return 1;
         }
+    }
+    public static Double calculate(double num1, double num2, char operator) {
+
+
+        double result = 0.0;
+        if (operator == '/') {
+            result =  num1 / num2;
+        } else if (operator == '*') {
+            result =  num1 * num2;
+        } else if (operator == '+') {
+            result =  num1 + num2;
+        } else {
+            result =  num1 - num2;
+        }
+
+
+        return result;
     }
 }

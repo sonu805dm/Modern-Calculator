@@ -12,8 +12,10 @@ public class ModernCalculator {
         equation = equation.replace(" ", "");
         equation = equation.replace("=", "");
 
-        String simpleEquation = solve(equation);
+        String simpleEquation = simpleEquation(equation);
         System.out.println(simpleEquation);
+
+        System.out.println(solve(simpleEquation));
     }
 
     /*
@@ -22,11 +24,11 @@ public class ModernCalculator {
      *
      * For example lets check equation "3-2+1",
      * this can be divided into simple equations like "3-2" and "2+1",
-     * and by the rules we must solve "2+1". Hence, solve() returns the equation "2+1".
+     * and by the rules we must solve "2+1". Hence, reducedEquation() returns the equation "2+1".
      */
 
 
-    static String solve(String equation) {
+    static String simpleEquation(String equation) {
         StringTokenizer st = new StringTokenizer(equation, "-+*/");
         int tokens = st.countTokens(); // value of tokens is just the number of numbers in the equation
 
@@ -66,4 +68,21 @@ public class ModernCalculator {
 
     }
 
+    /*
+     *
+     * solves the simpleEquation.
+     */
+    static String solve(String simpleEquation) {
+        StringTokenizer st = new StringTokenizer(simpleEquation, "-+*/");
+
+        String str = st.nextToken();
+        char operator = simpleEquation.charAt(str.length());
+
+        double num1 = Double.parseDouble(str);
+        double num2 = Double.parseDouble(st.nextToken());
+
+        double result = Helper.calculate(num1, num2, operator);
+
+        return String.valueOf(result);
+    }
 }
