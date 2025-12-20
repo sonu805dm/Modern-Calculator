@@ -70,7 +70,8 @@ public class ModernCalculator {
 
     /*
      *
-     * solves the simpleEquation.
+     * solve() solves the simpleEquation,
+     * and returs the solution as String.
      */
     static String solve(String simpleEquation) {
         StringTokenizer st = new StringTokenizer(simpleEquation, "-+*/");
